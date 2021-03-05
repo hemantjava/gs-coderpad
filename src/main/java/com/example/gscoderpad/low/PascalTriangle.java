@@ -2,17 +2,19 @@ package com.example.gscoderpad.low;
 
 public class PascalTriangle {
 
-    private static void printTriangle(int a) {
-        for (int line = 1; line <= a; line++) { //row
-            int col = 1;
-           // System.out.printf("%" + (a+1  - line) + "s", ""); //triangle space
-            System.out.print(space(a+1-line));
-            for (int i = 1; i <= line; i++) {  //column
-                System.out.print(col + " ");
-                col = col * (line - i) / i; //formula
-            }
-            System.out.println(); //new line
-        }
+    private static void printTriangle(int num) {
+        for(int line = 1; line<= num; line++){
+            int count = 1;
+            for(int col = 1; col<=line; col++){
+
+                System.out.print(count+"  ");
+                count = count*(line-col)/col;
+
+
+            }//for
+            System.out.println();
+
+        }//for
     }
 
     public static void main(String[] args) {
