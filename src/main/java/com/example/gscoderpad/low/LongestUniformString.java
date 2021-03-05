@@ -14,39 +14,36 @@ public class LongestUniformString {
     private static final Map<String, int[]> testCases = new HashMap<String, int[]>();
 
     static int[] longestUniformSubstring(String input){
-        int longestStart = -1;
-        int longestLength = 0;
+
+        if(input==null||input.length()==0){
+            return new int[]{-1,0};
+        }
+        int longestStart = 0;
+        int longestLength = 1;
         int count = 1;
-        int start = 0;
-        // your code goes here
-        for(int i = 1; i < input.length(); i++) {
-            if(input.charAt(i) == input.charAt(i-1)) {
+        char[] chars = input.toCharArray();
+        for (int i = 1; i < chars.length; i++) {
+
+            if (chars[i]==chars[i-1]){
                 count++;
+                continue;
             }
-            else {
-                if(count > longestLength) {
-                    longestLength = count;
-                    longestStart = start;
 
-                }
-                start = i;
+            if (count>longestLength){
+                longestLength = count;
+                longestStart++;
                 count = 1;
-
             }
-
         }
-        if(count > longestLength) {
-            longestLength = count;
-            longestStart = start;
 
-        }
         return new int[]{ longestStart, longestLength };
     }
 
     public static void main(String[] args) {
-        testCases.put("", new int[]{-1, 0});
-        testCases.put("10000111", new int[]{1, 4});
-        testCases.put("aabbbbbCdAA", new int[]{2, 5});
+
+       testCases.put("", new int[]{-1, 0});
+       testCases.put("10000111", new int[]{1, 4});
+       testCases.put("aabbbbbCdAA", new int[]{2, 5});
 
         boolean pass = true;
         for(Map.Entry<String,int[]> testCase : testCases.entrySet()){
