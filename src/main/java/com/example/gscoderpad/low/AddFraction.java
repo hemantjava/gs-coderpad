@@ -19,6 +19,6 @@ public class AddFraction {
     }
 
     private static int[] addFractions(int[] a, int[] b) {
-        return (new int[] {a[0]*b[1]+a[1]*b[0],a[1]*b[1]} );
+        return (new int[] {a[0]*b[1]+a[1]*b[0],a[1]*b[1]});
     }
 }

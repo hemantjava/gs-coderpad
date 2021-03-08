@@ -15,6 +15,7 @@ public class SetOfAnagrams {
 
         String input = "cat dog tac sat tas god dog";
         setOfAnagrams(input);
+
     }
 
     static void setOfAnagrams(String inputString) {
@@ -37,4 +38,5 @@ public class SetOfAnagrams {
         }
 
     }
+
 }

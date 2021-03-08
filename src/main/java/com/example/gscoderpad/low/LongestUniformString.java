@@ -39,15 +39,17 @@ public class LongestUniformString {
         return new int[]{ longestStart, longestLength };
     }
 
+
     public static void main(String[] args) {
 
        testCases.put("", new int[]{-1, 0});
        testCases.put("10000111", new int[]{1, 4});
-       testCases.put("aabbbbbCdAA", new int[]{2, 5});
+      testCases.put("aabbbbbCdAA", new int[]{2, 5});
 
         boolean pass = true;
         for(Map.Entry<String,int[]> testCase : testCases.entrySet()){
             int[] result = longestUniformSubstring(testCase.getKey());
+            System.out.println(Arrays.toString(result));
             pass = pass && (Arrays.equals(result, testCase.getValue()));
         }
         if(pass){
