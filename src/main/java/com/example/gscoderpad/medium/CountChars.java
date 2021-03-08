@@ -1,5 +1,10 @@
 package com.example.gscoderpad.medium;
 
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 public class CountChars {
     public static void main(String[] args) {
         String input = "â€œSSSSSTTPPQâ";
