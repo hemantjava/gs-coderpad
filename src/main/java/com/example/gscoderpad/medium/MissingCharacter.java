@@ -3,6 +3,7 @@ package com.example.gscoderpad.medium;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+//find missing characters to make strings programming
 public class MissingCharacter {
     public static void main(String[] args) {
 
@@ -12,7 +13,7 @@ public class MissingCharacter {
     }
 
 
-    private static String  missing(String input) {
+    private static String missing(String input) {
         StringBuffer sb = new StringBuffer();
         Set<Character> set = new LinkedHashSet<>();
         char[] ch = input.toLowerCase().toCharArray();
