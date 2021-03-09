@@ -4,8 +4,8 @@ public class PowerOfEachOther {
 
         public static void main(String[] args) {
 
-            System.out.println(powerOfEachOther(3,3));
-            System.out.println(powerOfEachOther1(3,3));
+            System.out.println(powerOfEachOther(0,0));
+            System.out.println(powerOfEachOther1(4,2));
 
         }
 

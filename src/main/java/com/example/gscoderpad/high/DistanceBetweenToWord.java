@@ -10,7 +10,7 @@ public class DistanceBetweenToWord {
             return 0;
         final String[] split = s.split(" ");
         for (int i = 0; i < split.length; i++) {
-            map.put(split[i], i);
+            map.putIfAbsent(split[i], i);
         }
         System.out.println(map);
         return   map.get(w2)-map.get(w1)-1;
@@ -18,7 +18,7 @@ public class DistanceBetweenToWord {
 
     static int distance1(String s, String w1, String w2) {
         int starts=0,ends =0;
-        final String[] split = s.split(" ");{
+        final String[] split = s.split("\\s+");{
             for (int i = 0; i < split.length; i++) {
                 if (split[i].equals(w1))
                     starts = i;

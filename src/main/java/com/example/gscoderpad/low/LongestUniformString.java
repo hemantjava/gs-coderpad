@@ -39,6 +39,37 @@ public class LongestUniformString {
         return new int[]{ longestStart, longestLength };
     }
 
+    private static int[] longestRepeatingStr(String str){
+
+
+        if(str==null||str.length()==0){
+            return new int[]{-1,0};
+        }
+
+        int index = 0;
+        int length = 0;
+
+        for(int i=0;i<str.length();){
+
+            int count =0;
+            int ind = i;
+            char c = str.charAt(i);
+
+            while(i<str.length() && c == str.charAt(i)){
+                i++;
+                count++;
+            }
+
+            if(count>length){
+                length = count;
+                index = ind;
+            }
+        }//for
+
+
+        return new int[]{index,length};
+
+    }
 
     public static void main(String[] args) {
 
@@ -48,7 +79,7 @@ public class LongestUniformString {
 
         boolean pass = true;
         for(Map.Entry<String,int[]> testCase : testCases.entrySet()){
-            int[] result = longestUniformSubstring(testCase.getKey());
+            int[] result = longestRepeatingStr(testCase.getKey());
             System.out.println(Arrays.toString(result));
             pass = pass && (Arrays.equals(result, testCase.getValue()));
         }

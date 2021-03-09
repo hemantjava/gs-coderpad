@@ -26,19 +26,24 @@ public class FindTopIpaddress {
 
         for(String str : strs){
             String[] split = str.split("-");
-           /* if(mapTemp.containsKey(split[0].trim())){
-                mapTemp.put(split[0].trim(),mapTemp.get(split[0].trim())+1);
-            }else{
-                mapTemp.put(split[0].trim(),1);
-            }*/
             mapTemp.merge(split[0].trim(),1,Integer::sum);//(a,b)->(a+b)
         }
 
-        String top = (String) mapTemp.entrySet().stream()
+      /*  String top = (String) mapTemp.entrySet().stream()
                 .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
                 .collect(Collectors.toMap(Map.Entry::getKey,
                         Map.Entry::getValue,
-                        (a,b)->b,LinkedHashMap::new)).keySet().toArray()[0];
+                        (a,b)->b,LinkedHashMap::new)).keySet().toArray()[0];*/
+
+        String top ="";
+        int val = Integer.MIN_VALUE;
+        for (String key:mapTemp.keySet()) {
+            if (mapTemp.get(key)>val){
+                val = mapTemp.get(key);
+                top = key;
+
+            }
+        }
 
         return top;
     }
