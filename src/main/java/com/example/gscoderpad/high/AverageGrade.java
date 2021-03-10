@@ -1,27 +1,20 @@
 package com.example.gscoderpad.high;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class AverageGrade {
     public static void main(String[] args) {
-        String[][] input = {{"sobby","87"}, {"charles","80"}, {"arush", "37"},{"tony", "24"},{"charles","22"}};
-        Map<String, ArrayList<Integer>> map = new HashMap<>();
+        String[][] input  = { { "Rohan", "84" }, { "Sachin", "102" }, { "Ishan", "55" }, { "Sachin", "18" } };
+        Map<String, List<Integer>> map = new HashMap<>();
 
-        ArrayList<Integer> list;
+        List<Integer> list;
         for (String[] str : input) {
-            String name = str[0];
-            int val = Integer.parseInt(str[1]);
-            if (map.containsKey(name)) {
-                list = map.get(name);
-                list.add(val);
-                map.put(name, list);
-            } else {
-                list = new ArrayList<>(Arrays.asList(val));
-                map.put(name, list);
-            }
+            String name = str[0]; //0 index name
+            int val = Integer.parseInt(str[1]); //i index value
+            list = (map.containsKey(name))?map.get(name):new ArrayList<>();
+            list.add(val);
+            map.put(name, list);
+            System.out.println(map);
         }
 
         int bestAvg = 0;
