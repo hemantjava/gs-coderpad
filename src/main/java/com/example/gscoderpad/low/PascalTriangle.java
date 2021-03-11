@@ -18,33 +18,44 @@ public class PascalTriangle {
         }//for
     }
 
-    private static void pascal(int n) {
+    public static int pascal(int col, int row) {
 
-        int[][] array = new int[n][n];
+        int result = 0;
+        int[][] arr = new int[row+1][row+1];
 
-        for (int line = 0; line < n; line++) {
+        for(int i = 0; i <=row; i++){
 
-            for (int col = 0; col <= line; col++) {
+            for(int j = 0; j <=i; j++){
 
-                if (col == 0 || line == col)
-                    array[line][col] = 1;
-                else
-                    array[line][col] = array[line - 1][col - 1] + array[line - 1][col];
+                if(j==0 || j==i){
+                    arr[i][j]= 1;
+                }else{
+                    arr[i][j] = (arr[i-1][j-1])+(arr[i-1][j]);
 
-                System.out.print(array[line][col] + " ");
-
-            }//for
+                }
+                System.out.print(arr[i][j]+" ");
+                if(col==j && row==i)
+                    result =arr[i][j];
+            }
             System.out.println();
 
-        }//for
+        }
 
-        System.out.println(array[4][2]);
+        return result;
     }
 
+
+
     public static void main(String[] args) {
-        printTriangle(5);
-        System.out.println("----------------------------");
-        pascal(5);
+        if(pascal(0,0) ==  1 &&
+                pascal(1,2) ==  2 &&
+                pascal(5,6) ==  6 &&
+                pascal(4,8) ==  70 &&
+                pascal(6,6) ==  1) {
+            System.out.println("Pass");
+        }else {
+            System.out.println("Failed");
+        }
     }
 
     private static String space(int sp) {
