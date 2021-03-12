@@ -6,7 +6,9 @@ package com.example.gscoderpad.medium;
 public class Atio {
     public static void main(String[] args) {
         System.out.println(atoi("431"));
+
     }
+
     public static int atoi(String str) {
         int result = 0;
         for (char c : str.toCharArray()) {

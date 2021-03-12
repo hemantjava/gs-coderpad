@@ -101,7 +101,7 @@ public class SinglyLL {
         if (head == null)
             return -1;
         Node currentNode = head;
-        while (currentNode.getNext() != null) {
+        while (currentNode!= null) {
             if (currentNode.getData() == searchValue)
                 return currentNode.getData();
             currentNode = currentNode.getNext();
@@ -113,27 +113,27 @@ public class SinglyLL {
 
     public static void main(String[] args) {
         SinglyLL singlyLL = new SinglyLL();
-        System.out.println("IsEmpty:" + singlyLL.isEmpty());
-        System.out.println(singlyLL.length());
+       // System.out.println("IsEmpty:" + singlyLL.isEmpty());
+        //System.out.println(singlyLL.length());
         singlyLL.insert(1);
         singlyLL.insert(2);
         singlyLL.insert(3);
         singlyLL.insert(4);
         singlyLL.insert(5);
         singlyLL.insert(6);
-        System.out.println("IsEmpty:" + singlyLL.isEmpty());
+       // System.out.println("IsEmpty:" + singlyLL.isEmpty());
+       // singlyLL.print();
+       // singlyLL.insertFirst(11);
+       // singlyLL.print();
+       // System.out.println(singlyLL.length());
+       // singlyLL.print();
+       // System.out.println(singlyLL.deleteFirst());
         singlyLL.print();
-        singlyLL.insertFirst(11);
-        singlyLL.print();
-        System.out.println(singlyLL.length());
-        singlyLL.print();
-        System.out.println(singlyLL.deleteFirst());
-        singlyLL.print();
-        System.out.println(singlyLL.findData(21));
-        System.out.println(singlyLL.findData(20));
-        singlyLL.print();
-        singlyLL.reverse();
-       System.out.println(singlyLL.display());
+        System.out.println(singlyLL.findData(6));
+        //System.out.println(singlyLL.findData(20));
+        //singlyLL.print();
+      //  singlyLL.reverse();
+      // System.out.println(singlyLL.display());
     }
 
 
