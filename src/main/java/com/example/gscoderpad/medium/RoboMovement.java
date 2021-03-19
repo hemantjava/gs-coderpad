@@ -3,19 +3,42 @@ package com.example.gscoderpad.medium;
 import java.util.Arrays;
 
 public class RoboMovement {
-    private static int[] walk(String path){
-        int x =0,y=0;
-        for (char c : path.toCharArray()){
+    private static int[] walk(String path) {
+        int x = 0, y = 0;
+        for (char c : path.toCharArray()) {
             if (c == 'U')
-                y+=1;
-            else if(c == 'D')
-                y-=1;
-            else if (c== 'R')
-                x+=1;
-            else if (c=='L')
-                x-=1;
+                y++;
+            else if (c == 'D')
+                y--;
+            else if (c == 'R')
+                x++;
+            else if (c == 'L')
+                x--;
         }
-        return new int[]{x,y};
+        return new int[]{x, y};
+    }
+
+    private static int[] run(String path) {
+        int x = 0, y = 0;
+        for (char ch : path.toCharArray()) {
+            switch (ch) {
+                case 'U':
+                    y++;
+                    break;
+                case 'D':
+                    y--;
+                    break;
+                case 'R':
+                    x++;
+                    break;
+                case 'L':
+                    x--;
+                    break;
+
+            }
+        }
+
+        return new int[]{x, y};
     }
 
 
@@ -40,7 +63,7 @@ public class RoboMovement {
 
         {
             String test = "ULLLDUDUURLRLR";
-            int[] result = walk(test);
+            int[] result = run(test);
             res &= isEqual(result, new int[]{-2, 2});
         }
 
@@ -54,7 +77,7 @@ public class RoboMovement {
     }
 
     public static void main(String[] args) {
-        if(pass()){
+        if (pass()) {
             System.out.println("Pass");
         } else {
             System.out.println("Test failures");
