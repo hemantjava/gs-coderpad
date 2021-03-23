@@ -6,6 +6,7 @@ public class ArmstrongNumber {
     }
 
     private static boolean isArmstrongNumber(int input){
+        //finding the length of the input
         int length = String.valueOf(input).length();
         int sum = 0;
         int num = input;

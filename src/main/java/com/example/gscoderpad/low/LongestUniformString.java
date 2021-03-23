@@ -16,7 +16,7 @@ public class LongestUniformString {
     private static int[] longestRepeatingStr(String str){
 
 
-        if(str==null||str.length()==0){
+        if(str==null||str.isEmpty() || str.isBlank()){
             return new int[]{-1,0};
         }
 
@@ -47,7 +47,7 @@ public class LongestUniformString {
 
 
     public static void main(String[] args) {
-        testCases.put("", new int[]{-1, 0});
+        testCases.put(" ", new int[]{-1, 0});
       testCases.put("10000111", new int[]{1, 4});
       testCases.put("abbbccda", new int[]{1, 3});
       testCases.put("aabbbbbCbbAA", new int[]{2, 5});

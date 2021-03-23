@@ -2,17 +2,35 @@ package com.example.gscoderpad.medium;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.function.Predicate;
 
 public class CountChars {
     public static void main(String[] args) {
-        System.out.println(couCharacter("SSSSStTPPQ").equals("5S2T2P1Q"));
-        System.out.println(couCharacter("SSSSSTTPPQ").equals("5S2T2P1Q"));
-        System.out.println(couCharacter(null).equals("-1"));
-        System.out.println(couCharacter("").equals("-1"));
+        System.out.println(countCharacter("SSSSSTTPPQ").equals("5S2T2P1Q"));
+        System.out.println(countCharacter(null).equals("-1"));
+        System.out.println(countCharacter("").equals("-1"));
+        System.out.println(countChars("SSSSSTTPPQ"));
     }
 
+    //use this
+    private static String countChars(String s) {
+        if (s == null || s.length() == 0) {
+            return "-1";
+        }
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < s.length(); ) {
+            int len = 0;
+            char c = s.charAt(i);
+            while (i < s.length() && c == s.charAt(i)) {
+                i++;
+                len++;
+            }
+            sb.append(len).append(c);
+        }
+        return sb.toString();
+    }
 
-    private static String couCharacter(String inputString) {
+    private static String countCharacter(String inputString) {
         if (inputString == null || inputString.length() == 0) {
             return "-1";
         }
@@ -20,18 +38,20 @@ public class CountChars {
 
         StringBuffer sb = new StringBuffer();
         Map<Character, Integer> map = new LinkedHashMap<>();
+
         inputString.chars().forEach(data -> {
             map.merge((char) data, 1, Integer::sum);
         });
 
         map.forEach((k, v) -> {
-            sb.append(v);
-            sb.append(k);
+            sb.append(v).append(k);
         });
 
         return sb.toString();
 
     }
+
+
 }
 
 

@@ -8,7 +8,8 @@ public class FindTopIpaddress {
         String lines[] = new String[]{
                 "10.0.0.1 - log entry 1 11",
                 "10.0.0.1 - log entry 2 213",
-                "10.0.0.2 - log entry 133132"};
+                "10.0.0.2 - log entry 133132",
+        " "};
         String result = findTopIpaddress(lines);
 
         if (result.equals("10.0.0.1")) {
@@ -25,8 +26,10 @@ public class FindTopIpaddress {
         Map<String,Integer> mapTemp = new HashMap<>();
 
         for(String str : strs){
-            String[] split = str.split("-");
-            mapTemp.merge(split[0].trim(),1,Integer::sum);//(a,b)->(a+b)
+            if(str !=null && !str.isBlank()) {
+                String[] split = str.split(" ");
+                mapTemp.merge(split[0].trim(), 1, Integer::sum);//(a,b)->(a+b)
+            }
         }
 
       /*  String top = (String) mapTemp.entrySet().stream()

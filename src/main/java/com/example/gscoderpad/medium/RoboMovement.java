@@ -51,13 +51,13 @@ public class RoboMovement {
 
         {
             String test = "UUU";
-            int[] result = walk(test);
+            int[] result = run(test);
             res &= isEqual(result, new int[]{0, 3});
         }
 
         {
             String test = "ULDR";
-            int[] result = walk(test);
+            int[] result = run(test);
             res &= isEqual(result, new int[]{0, 0});
         }
 
@@ -69,7 +69,7 @@ public class RoboMovement {
 
         {
             String test = "UP LEFT 2xDOWN DOWN RIGHT RIGHT UP UP";
-            int[] result = walk(test);
+            int[] result = run(test);
             res &= isEqual(result, new int[]{1, 1});
         }
 
